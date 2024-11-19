@@ -6,13 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = CreditCard)
+@Table(name = "CreditCard")
 public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
