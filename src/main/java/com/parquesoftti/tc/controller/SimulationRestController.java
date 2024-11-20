@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/simulation")
+@RequestMapping("/api/v1/sessions")
 
 public class SimulationRestController {
         @PostMapping()
