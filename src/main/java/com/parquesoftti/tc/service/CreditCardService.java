@@ -1,6 +1,7 @@
 package com.parquesoftti.tc.service;
 
 import com.parquesoftti.tc.model.CreditCard;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,4 +16,7 @@ public interface CreditCardService {
     CreditCard uptdateCreditCard(CreditCard creditCard, Long id);
 
     void deleteCard(Long id);
+
+    @Transactional(readOnly = true)
+    CreditCard getCreditCardsByCardNumber(String cardNumber);
 }

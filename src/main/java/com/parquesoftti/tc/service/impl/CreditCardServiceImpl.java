@@ -5,10 +5,8 @@ import com.parquesoftti.tc.repository.CreditCardRespository;
 import com.parquesoftti.tc.service.CreditCardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +16,7 @@ import java.util.Optional;
 public class CreditCardServiceImpl implements CreditCardService {
 
     private final CreditCardRespository creditCardRespository;
+    private CreditCardRespository creditCardRepository;
 
     @Override
     @Transactional(readOnly = true)
@@ -51,5 +50,17 @@ public class CreditCardServiceImpl implements CreditCardService {
     @Override
     public void deleteCard(Long id) {
         creditCardRespository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public CreditCard getCreditCardsByCardNumber(String cardNumber) {
+        var tmp=creditCardRepository.findCreditCardByCardNumber(cardNumber);
+
+        if (tmp.isPresent()) {
+            return tmp.get();
+        }else {
+            throw new IllegalArgumentException("El numero de credito no existe");
+        }
     }
 }
