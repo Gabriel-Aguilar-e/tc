@@ -17,12 +17,12 @@ public class CreditCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 16)
     private String cardNumber;
 
     @Column(nullable = false)
     private String expirtationDate;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 4)
     private String cvv;
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class SimulationRestController {
         @PostMapping()
         public ResponseEntity<String> payment(){
-            return ResponseEntity.ok("Hola mundooo");
+            return ResponseEntity.ok("Hola mundooo1");
         }
 
         @PutMapping()
